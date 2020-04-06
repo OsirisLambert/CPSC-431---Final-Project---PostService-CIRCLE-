@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CIRCLE Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="header">
+        <h4>CIRCLE</h4>
+    </div>
+
+    <div class="sign_up">
+        <form method="POST" action="signup.php">
+            <fieldset>
+            <legend>Sign Up</legend>
+                <label for="sigin_up_account">Account:</label><br>
+                <input type="text" id="sign_up_account" name="sign_up_account" placeholder="Please Enter Your Email" title="Invalid Email Format: sample@gmail.com" 
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"><br>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username"><br>
+                <label for="sign_up_password">Password:</label><br>
+                <input type="password" id="sign_up_password" name="sign_up_password" title="Password must be at least 8 characters; must contain 1 number and 1 uppercase and 1 lowercase letter." 
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"> Must contain one number, one uppercase and one lowercase letter; at least 8 characters<br>
+                <input type="checkbox" onclick="show_password('sign_up_password')">Show Password<br>
+                <script>
+                function show_password(id) {
+                    var x = document.getElementById(id);
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+                </script>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form> 
+    </div>
+
+    <div class="login">
+        <form method="POST" action="login.php">
+            <fieldset>
+            <legend>Login</legend>
+                <label for="login_account">Account:</label><br>
+                <input type="text" id="login_account" name="login_account" placeholder="Please Enter Your Email"><br>
+                <label for="login_password">Password:</label><br>
+                <input type="password" id="login_password" name="login_password"><br>
+                <input type="checkbox" onclick="show_password('login_password')">Show Password<br>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form> 
+    </div>
+
+    <div class="guest">
+        <form method="POST" action="posts.php">
+            <fieldset>
+                <legend>Guest</legend>
+                <input type="text" id="signal" name="signal" value="guest" style='display:none' />
+                <input type="submit" value="Guest Login">
+            </fieldset>
+        </form>
+        
+    </div>
+
+
+</body>
+
+</html>
