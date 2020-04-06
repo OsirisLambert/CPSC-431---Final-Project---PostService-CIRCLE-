@@ -46,7 +46,7 @@ if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)){
 		$_SESSION['account'] = $account;
 		$_SESSION['signal'] = "login";
 		// Direct to profile page
-		header("Location: profile.php?login_account=".$_SESSION['account']."&signal=".$_SESSION['signal']);
+        header("Location: profile.php?login_account=".$_SESSION['account']."&signal=".$_SESSION['signal']);
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

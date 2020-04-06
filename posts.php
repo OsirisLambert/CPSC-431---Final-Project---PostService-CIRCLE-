@@ -11,6 +11,10 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "proj1";
+
+// start of the session
+session_start();
+
 // set up connection to database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -47,7 +51,15 @@ $userName = "";
                     $row = $result->fetch_assoc();
                     $userName = $row['UserName'];
                 }
-                echo "<h4>$userName</h4>";
+                else{
+                    echo '<script language="javascript">';
+                    echo 'if(confirm("Cannot Find Your Login Information, Automatically Log Out")) window.location.href="index.html"';
+                    echo '</script>';
+                }
+                // Session information to next page
+                $_SESSION['login_account'] = $account;
+                $_SESSION['signal'] = "login";
+                echo "<h4><a href='profile.php?login_account=". $_SESSION['login_account'] . "&signal=" . $_SESSION['signal'] . "'>$userName</a></h4>";
                 echo "<h6><a href='index.html'> Log out </a></h6>";
             }
         ?>  
@@ -55,15 +67,6 @@ $userName = "";
 
     <div class="display_posts">
         <?php
-            $icon_path = "";
-            $image_root = "uploads/";
-            $sql = "SELECT Path From ACCOUNTS WHERE Email='$account'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $icon_path = $row['Path'];
-            }
-            $icon_path = $image_root . basename($icon_path);
             $query = "SELECT * FROM POSTS ORDER BY PostTime DESC;";
             $stmt = $conn->prepare($query);
             $stmt->execute();
@@ -72,6 +75,24 @@ $userName = "";
             echo " <fieldset>";
             echo "<legend>Posts</legend>";
             while($stmt->fetch()){
+                // get icon and user name
+                $icon_path = "";
+                $image_root = "uploads/";
+                $sql = "SELECT Path, UserName From ACCOUNTS WHERE Email='$author'";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $icon_path = $row['Path'];
+                    $userName = $row['UserName'];
+                }
+                else{
+                    echo '<script language="javascript">';
+                    echo 'if(confirm("Cannot Find Icon path, Automatically Log Out")) window.location.href="index.html"';
+                    echo '</script>';
+                }
+                $icon_path = $image_root . basename($icon_path);
+
+                // Display posts
                 echo "----------------------------------------------------------------<br>";
                 echo "---$title<br>";
                 echo "--- by <img src= '$icon_path' width=10px />$userName at $postTime <br>";

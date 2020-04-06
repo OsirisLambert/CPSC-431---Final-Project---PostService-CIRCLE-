@@ -66,11 +66,17 @@ if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $icon_path = $row['Path'];
         }
+        else{
+            echo '<script language="javascript">';
+            echo 'if(confirm("Cannot Find Icon path, Automatically Log Out")) window.location.href="index.html"';
+            echo '</script>';
+        }
         $icon_path = $image_root . basename($icon_path);
         echo "<h4>$userName</h4>";
         echo "<h6><a href='index.html'> Log out </a></h6>";
         echo "<form method='POST' action='change_icon.php' id='form' enctype='multipart/form-data'>";
         echo "<img src='$icon_path' id='my_icon' width=150px style='cursor:pointer' />";
+        echo "<input type='text' name='account' id='account' value='$account' style='display:none' >";
     ?>  
         <input type='file' accept='.png,.jpg,.jpeg,.gif' name='fileToUpload' id='fileToUpload' style='display:none''/>
         <script type='text/javascript'>
