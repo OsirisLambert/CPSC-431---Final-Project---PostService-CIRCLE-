@@ -168,7 +168,7 @@ if ($result->num_rows > 0) {
                         echo '<div class="card-body">';
                         echo '<h5 class="card-title" style="color:#2699FB;font-size: 1.75em;" >' . $title . '</h5>';
                         echo "<h6 class='card-subtitle mb-2 text-muted'>by <img src= '$icon_path' width=30px />$userName at $postTime </h6>";
-                        echo "<p class='card-text'>$message</p>";
+                        echo "<p class='card-text'>" . nl2br($message). "</p>";
                         echo '</li>';
                     }
                     echo "</ul>";

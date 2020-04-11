@@ -115,49 +115,11 @@ $userName = "";
                     echo '<div class="card-body">';
                     echo '<h5 class="card-title" style="color:#2699FB;font-size: 1.75em;" >' . $title . '</h5>';
                     echo "<h6 class='card-subtitle mb-2 text-muted'>by <img src= '$icon_path' width=30px />$userName at $postTime </h6>";
-                    echo "<p class='card-text'>$message</p>";
+                    echo "<p class='card-text'>" . nl2br($message) . "</p>";
                     echo '</li>';
                 }
                 echo '</ul>';
                 ?>
-
-
-            <?php
-            /*
-            $query = "SELECT * FROM POSTS ORDER BY PostTime DESC;";
-            $stmt = $conn->prepare($query);
-            $stmt->execute();
-            $stmt->store_result();
-            $stmt->bind_result($title, $message, $postTime, $author);
-            echo " <fieldset>";
-            //echo "<legend>Posts</legend>";
-            while ($stmt->fetch()) {
-                // get icon and user name
-                $icon_path = "";
-                $image_root = "uploads/";
-                $sql = "SELECT Path, UserName From ACCOUNTS WHERE Email='$author'";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
-                    $icon_path = $row['Path'];
-                    $userName = $row['UserName'];
-                } else {
-                    echo '<script language="javascript">';
-                    echo 'if(confirm("Cannot Find Icon path, Automatically Log Out")) window.location.href="index.html"';
-                    echo '</script>';
-                }
-                $icon_path = $image_root . basename($icon_path);
-
-                // Display posts
-                echo "----------------------------------------------------------------<br>";
-                echo "---$title<br>";
-                echo "--- by <img src= '$icon_path' width=10px />$userName at $postTime <br>";
-                echo "$message <br>";
-                echo "----------------------------------------------------------------<br>";
-            }
-            echo "</fieldset>";
-            */
-            ?>
         </div>
     </div>
 
