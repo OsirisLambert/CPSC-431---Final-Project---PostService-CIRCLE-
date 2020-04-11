@@ -44,14 +44,14 @@ $userName = "";
 
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" style="font-size: 2.5rem;">CIRCLE Communities</a>
+            <a class="navbar-brand" style="font-size: 2.5rem;">CIRCLE - Communities</a>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                 </ul>
                 <?php
                 if ($signal == "guest") {
-                    echo '<button class="btn btn-outline-light my-2 my-sm-0" type="button" href="index.html">Login/Signup</button>';
+                    echo '<a class="btn btn-outline-light my-2 my-sm-0" type="button" href="index.html">Login/Signup</a>';
                 } else {
                     // Access Account information from DB
                     $sql = "SELECT UserName From ACCOUNTS WHERE Email='$account'";
@@ -74,29 +74,6 @@ $userName = "";
             </div>
         </nav>
 
-        <?php
-        /*
-        if ($signal == "guest") {
-            echo "<h5><a href='index.html'> Login / Sign up </a></h5>";
-        } else {
-            // Access Account information from DB
-            $sql = "SELECT UserName From ACCOUNTS WHERE Email='$account'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $userName = $row['UserName'];
-            } else {
-                echo '<script language="javascript">';
-                echo 'if(confirm("Cannot Find Your Login Information, Automatically Log Out")) window.location.href="index.html"';
-                echo '</script>';
-            }
-            // Session information to next page
-            $_SESSION['login_account'] = $account;
-            $_SESSION['signal'] = "login";
-            echo "<h4><a href='profile.php?login_account=" . $_SESSION['login_account'] . "&signal=" . $_SESSION['signal'] . "'>$userName</a></h4>";
-            echo "<h6><a href='index.html'> Log out </a></h6>";
-        }*/
-        ?>
     </div>
 </header>
 
@@ -104,7 +81,7 @@ $userName = "";
     <div class="body_godown">
         <div class="container">
             <label>
-                <h2>Posts</h2>
+                <h1>Posts</h1>
             </label>
                 <?php
                 $query = "SELECT * FROM POSTS ORDER BY PostTime DESC;";
@@ -136,8 +113,8 @@ $userName = "";
                     echo '<li class="list-group-item">';
                     echo '<div class="card" style=" width: 50rem;">';
                     echo '<div class="card-body">';
-                    echo '<h5 class="card-title" style="color:#2699FB;" >' . $title . '</h5>';
-                    echo "<h6 class='card-subtitle mb-2 text-muted'>by <img src= '$icon_path' width=10px />$userName at $postTime </h6>";
+                    echo '<h5 class="card-title" style="color:#2699FB;font-size: 1.75em;" >' . $title . '</h5>';
+                    echo "<h6 class='card-subtitle mb-2 text-muted'>by <img src= '$icon_path' width=30px />$userName at $postTime </h6>";
                     echo "<p class='card-text'>$message</p>";
                     echo '</li>';
                 }

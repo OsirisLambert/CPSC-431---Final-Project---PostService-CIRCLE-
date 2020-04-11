@@ -32,33 +32,34 @@
                                 <font color="#2699FB">Sign Up</font>
                                 <br><br>
                             </legend>
-                            <label for="sigin_up_account">Account:</label><br>
-                            <input type="text" id="sign_up_account" name="sign_up_account"
-                                placeholder="Please Enter Your Email" title="Invalid Email Format: sample@gmail.com"
-                                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"><br>
-                                <br>
-                            <label for="username">Username:</label><br>
-                            <input type="text" id="username" name="username"><br>
-                            <br>
-                            <label for="sign_up_password">Password:</label><br>
-                            <input type="password" id="sign_up_password" name="sign_up_password"
-                                title="Password must be at least 8 characters; must contain 1 number and 1 uppercase and 1 lowercase letter."
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"> <br>
-                            <font size=1>Must contain number, uppercase
-                                and lowercase letter; at least 8 characters<br></font>
-                            <input type="checkbox" onclick="show_password('sign_up_password')">Show Password<br>
-                            <script>
-                                function show_password(id) {
-                                    var x = document.getElementById(id);
-                                    if (x.type === "password") {
-                                        x.type = "text";
-                                    } else {
-                                        x.type = "password";
+                            <div class="form-group" style="width:300px;">
+                                <label for="sigin_up_account">Account:</label><br>
+                                <input class="form-control" type="text" id="sign_up_account" name="sign_up_account"
+                                    placeholder="Please Enter Your Email" title="Invalid Email Format: sample@gmail.com"
+                                    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"><br>
+                                <label for="username">Username:</label><br>
+                                <input class="form-control" type="text" id="username" name="username"><br>
+                                <label for="sign_up_password">Password:</label><br>
+                                <input class="form-control" type="password" id="sign_up_password"
+                                    name="sign_up_password"
+                                    title="Password must be at least 8 characters; must contain 1 number and 1 uppercase and 1 lowercase letter."
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                                <font size=2>Must contain number, uppercase
+                                    and lowercase letter; at least 8 characters<br></font>
+                                <input type="checkbox" onclick="show_password('sign_up_password')">Show Password<br>
+                                <script>
+                                    function show_password(id) {
+                                        var x = document.getElementById(id);
+                                        if (x.type === "password") {
+                                            x.type = "text";
+                                        } else {
+                                            x.type = "password";
+                                        }
                                     }
-                                }
-                            </script>
-                            <br>
-                            <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+                                </script>
+                                <br>
+                                <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+                            </div>
                         </fieldset>
                     </form>
                 </div>
@@ -71,19 +72,21 @@
                                 <font color="#2699FB">Login</font>
                                 <br><br>
                             </legend>
-                            <label for="login_account">Account:</label><br>
-                            <input type="text" id="login_account" name="login_account"
-                                placeholder="Please Enter Your Email"><br>
+                            <div class="form-group" style="width:300px;">
+                                <label for="login_account">Account:</label><br>
+                                <input class="form-control" type="text" id="login_account" name="login_account"
+                                    placeholder="Please Enter Your Email"><br>
                                 <br>
-                            <label for="login_password">Password:</label><br>
-                            <input type="password" id="login_password" name="login_password"><br>
-                            <input type="checkbox" onclick="show_password('login_password')">Show Password<br>
-                            <br>
-                            <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+                                <label for="login_password">Password:</label><br>
+                                <input class="form-control" type="password" id="login_password" name="login_password"><br>
+                                <input type="checkbox" onclick="show_password('login_password')">Show Password<br>
+                                <br>
+                                <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+                            </div>
                         </fieldset>
                     </form>
                 </div>
-                <div class="col-1">
+                <div class="col">
                     <form method="POST" action="posts.php">
                         <fieldset>
                             <legend>
@@ -91,7 +94,7 @@
                                 <br><br>
                             </legend>
                             <input type="text" id="signal" name="signal" value="guest" style='display:none' />
-                            <button class="btn btn-primary" type="submit" value="Guest Login">Login</button>
+                            <button class="btn btn-primary" type="submit" value="Guest Login">Browse</button>
                         </fieldset>
                     </form>
 
