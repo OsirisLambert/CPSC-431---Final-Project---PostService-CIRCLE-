@@ -49,10 +49,10 @@ if ($result->num_rows > 0) {
     <title>CIRCLE Profile</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 引入 Bootstrap -->
+    <!-- import Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- 包括所有已编译的插件 -->
+    <!-- include all js -->
     <script src="js/bootstrap.js"></script>
 </head>
 
@@ -167,14 +167,13 @@ if ($result->num_rows > 0) {
                         echo '<div class="card" style=" width: 50rem;">';
                         echo '<div class="card-body">';
                         echo '<h5 class="card-title" style="color:#2699FB;font-size: 1.75em;" >' . $title . '</h5>';
+                        echo "<h6 class='card-subtitle mb-2 text-muted'>by <img src= '$icon_path' width=30px />$userName at $postTime </h6>";
+                        echo "<p class='card-text'>" . nl2br($message). "</p>";
                         echo "<form  method='POST' action='delete_post.php' id='form' enctype='multipart/form-data'>";
                         echo "<input type='text' name='title' id='title' value='$title' style='display:none' >";
                         echo "<input type='text' name='account' id='account' value='$account' style='display:none' >";
                         echo "<button class='btn btn-primary' type='submit' value='Delete'>Delete</button>";
                         echo "</form>";
-                        echo "<h6 class='card-subtitle mb-2 text-muted'>by <img src= '$icon_path' width=30px />$userName at $postTime </h6>";
-                        
-                        echo "<p class='card-text'>" . nl2br($message). "</p>";
                         echo '</li>';
                     }
                     echo "</ul>";
