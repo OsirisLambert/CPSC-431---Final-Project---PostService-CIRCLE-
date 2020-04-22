@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CIRCLE Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- import Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- include all js -->
+    <script src="js/bootstrap.js"></script>
+</head>
+
+<header>
+    <div class="header_godown">
+        <h1 align="center">
+            <font color="#2699FB">CIRCLE</font>
+        </h1>
+    </div>
+</header>
+
+
+<body>
+
+    <div class="body_godown">
+        <div class="row d-flex justify-content-center">
+            <script>
+                function validateForm_1() {
+                    var v1 = document.forms["sign_up_form"]["sign_up_account"].value;
+                    var v2 = document.forms["sign_up_form"]["username"].value;
+                    var v3 = document.forms["sign_up_form"]["sign_up_password"].value;
+                    if (v1 == "Please Enter Your Email" || v2 == "" || v2 == null || v3 == "" || v3 == null) {
+                        alert("Information must be filled out");
+                        return false;
+                    }
+                }
+            </script>
+            <form name="sign_up_form" method="POST" onsubmit="return validateForm_1()" action="signup.php">
+                <fieldset>
+                    <legend style="color:#2699FB">
+                        Sign Up
+                        <br><br>
+                    </legend>
+                    <div class="form-group" style="width:300px;">
+                        <script>
+                            function show_password(id) {
+                                var x = document.getElementById(id);
+                                if (x.type === "password") {
+                                    x.type = "text";
+                                } else {
+                                    x.type = "password";
+                                }
+                            }
+                        </script>
+                        <label for="sigin_up_account">Account:</label><br>
+                        <input class="form-control" type="text" id="sign_up_account" name="sign_up_account"
+                            placeholder="Please Enter Your Email" title="Invalid Email Format: sample@gmail.com"
+                            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"><br>
+                        <label for="username">Username:</label><br>
+                        <input class="form-control" type="text" id="username" name="username"><br>
+                        <label for="sign_up_password">Password:</label><br>
+                        <input class="form-control" type="password" id="sign_up_password" name="sign_up_password"
+                            title="Password must be at least 8 characters; must contain 1 number and 1 uppercase and 1 lowercase letter."
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                        <font size=2>Must contain number, uppercase
+                            and lowercase letter; at least 8 characters<br></font>
+                        <input type="checkbox" onclick="show_password('sign_up_password')">Show Password<br>
+                        <br>
+                        <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+                        <a style="padding-left: 1.2em;" >Already have account:&nbsp</a><a href="index.html">Login</a>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div style="padding-left: 11.8em;">
+                <form method="POST" action="posts.php">
+                    <fieldset>
+                        <input type="text" id="signal" name="signal" value="guest" style='display:none' />
+                        <button class="btn btn-primary" type="submit" value="Guest Login">Guest
+                            Login</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+</body>
+
+</html>
