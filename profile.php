@@ -167,7 +167,17 @@ if ($result->num_rows > 0) {
                         echo '<div class="card" style=" width: 50rem;">';
                         echo '<div class="card-body">';
                         echo '<h5 class="card-title" style="color:#2699FB;font-size: 1.75em;" >' . $title . '</h5>';
+<<<<<<< HEAD
                         echo "<h6 class='card-subtitle mb-2 text-muted'>by <img src= '$icon_path' width=30px />$userName at $postTime </h6>";
+=======
+                        echo "<form  method='POST' action='delete_post.php' id='form' enctype='multipart/form-data'>";
+                        echo "<input type='text' name='title' id='title' value='$title' style='display:none' >";
+                        echo "<input type='text' name='account' id='account' value='$account' style='display:none' >";
+                        echo "<button class='btn btn-primary' type='submit' value='Delete'>Delete</button>";
+                        echo "</form>";
+                        echo "<h6 class='card-subtitle mb-2 text-muted'>by <img src= '$icon_path' width=30px />$userName at $postTime </h6>";
+                        
+>>>>>>> parent of 62a760f... finish
                         echo "<p class='card-text'>" . nl2br($message). "</p>";
                         echo '</li>';
                     }
