@@ -33,10 +33,10 @@ $userName = "";
     <title>CIRCLE COMMUNITIES</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- import Bootstrap -->
+    <!-- 引入 Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- include all js -->
+    <!-- 包括所有已编译的插件 -->
     <script src="js/bootstrap.js"></script>
 </head>
 

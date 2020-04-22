@@ -5,10 +5,10 @@
     <title>CIRCLE Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- import Bootstrap -->
+    <!-- 引入 Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- include all js -->
+    <!-- 包括所有已编译的插件 -->
     <script src="js/bootstrap.js"></script>
 </head>
 
@@ -22,40 +22,106 @@
 
 
 <body>
-
     <div class="body_godown">
-        <div class="row d-flex justify-content-center">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <script>
+                        function validateForm_1() {
+                                        var v1 = document.forms["sign_up_form"]["sign_up_account"].value;
+                                        var v2 = document.forms["sign_up_form"]["username"].value;
+                                        var v3 = document.forms["sign_up_form"]["sign_up_password"].value;
+                                        if (v1 == "Please Enter Your Email" || v2 == "" || v2 == null || v3 == "" || v3 == null) {
+                                            alert("Information must be filled out");
+                                            return false;
+                                        }
+                                    }
+                    </script>
+                    <form name="sign_up_form" method="POST" onsubmit="return validateForm_1()" action="signup.php">
+                        <fieldset>
+                            <legend>
+                                <font color="#2699FB">Sign Up</font>
+                                <br><br>
+                            </legend>
+                            <div class="form-group" style="width:300px;">
+                                <script>
+                                    function show_password(id) {
+                                        var x = document.getElementById(id);
+                                        if (x.type === "password") {
+                                            x.type = "text";
+                                        } else {
+                                            x.type = "password";
+                                        }
+                                    }
+                                </script>
+                                <label for="sigin_up_account">Account:</label><br>
+                                <input class="form-control" type="text" id="sign_up_account" name="sign_up_account"
+                                    placeholder="Please Enter Your Email" title="Invalid Email Format: sample@gmail.com"
+                                    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"><br>
+                                <label for="username">Username:</label><br>
+                                <input class="form-control" type="text" id="username" name="username"><br>
+                                <label for="sign_up_password">Password:</label><br>
+                                <input class="form-control" type="password" id="sign_up_password"
+                                    name="sign_up_password"
+                                    title="Password must be at least 8 characters; must contain 1 number and 1 uppercase and 1 lowercase letter."
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                                <font size=2>Must contain number, uppercase
+                                    and lowercase letter; at least 8 characters<br></font>
+                                <input type="checkbox" onclick="show_password('sign_up_password')">Show Password<br>
+                                <br>
+                                <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
 
-            <script>
-                function validateForm_2() {
-                    var v1 = document.forms["login_form"]["login_account"].value;
-                    var v2 = document.forms["login_form"]["login_password"].value;
-                    if (v1 == "Please Enter Your Email" || v2 == "" || v2 == null) {
-                        alert("Information must be filled out");
-                        return false;
-                    }
-                }
-            </script>
-            <form name="login_form" method="POST" onsubmit="return validateForm_2()" action="login.php">
-                <fieldset>
-                    <legend>
-                        <font color="#2699FB">Login</font>
-                        <br><br>
-                    </legend>
-                    <div class="form-group" style="width:300px;">
-                        <label for="login_account">Account:</label><br>
-                        <input class="form-control" type="text" id="login_account" name="login_account"
-                            placeholder="Please Enter Your Email"><br>
-                        <br>
-                        <label for="login_password">Password:</label><br>
-                        <input class="form-control" type="password" id="login_password" name="login_password"><br>
-                        <input type="checkbox" onclick="show_password('login_password')">Show Password<br>
-                        <br>
-                        <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
-                        <a style="padding-left: 7em;" href="signup.html">Create account</a>
-                    </div>
-                </fieldset>
-            </form>
+
+                <div class="col">
+                    <script>
+                        function validateForm_2() {
+                            var v1 = document.forms["login_form"]["login_account"].value;
+                            var v2 = document.forms["login_form"]["login_password"].value;
+                            if (v1 == "Please Enter Your Email" || v2 == "" || v2 == null) {
+                                alert("Information must be filled out");
+                                return false;
+                            }
+                        }
+                    </script>
+                    <form name="login_form" method="POST" onsubmit="return validateForm_2()" action="login.php">
+                        <fieldset>
+                            <legend>
+                                <font color="#2699FB">Login</font>
+                                <br><br>
+                            </legend>
+                            <div class="form-group" style="width:300px;">
+                                <label for="login_account">Account:</label><br>
+                                <input class="form-control" type="text" id="login_account" name="login_account"
+                                    placeholder="Please Enter Your Email"><br>
+                                <br>
+                                <label for="login_password">Password:</label><br>
+                                <input class="form-control" type="password" id="login_password" name="login_password"><br>
+                                <input type="checkbox" onclick="show_password('login_password')">Show Password<br>
+                                <br>
+                                <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col">
+                    <form method="POST" action="posts.php">
+                        <fieldset>
+                            <legend>
+                                <font color="#2699FB">Guest</font>
+                                <br><br>
+                            </legend>
+                            <input type="text" id="signal" name="signal" value="guest" style='display:none' />
+                            <button class="btn btn-primary" type="submit" value="Guest Login">Browse</button>
+                        </fieldset>
+                    </form>
+
+                </div>
+
+            </div>
 
         </div>
     </div>
