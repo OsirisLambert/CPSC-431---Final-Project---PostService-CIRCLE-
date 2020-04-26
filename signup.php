@@ -1,16 +1,15 @@
 <?php
-/*
-// server information
 $servername = "mariadb";
 $username = "cs431s44";
 $password = "gengo9Ni";
 $dbname = "cs431s44";
-*/
 
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "proj1";
+*/
 
 //start of the session
 session_start();
