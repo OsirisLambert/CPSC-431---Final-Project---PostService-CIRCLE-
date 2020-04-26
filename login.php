@@ -1,5 +1,4 @@
 <?php
-
 // server information
 $servername = "mariadb";
 $username = "cs431s44";
@@ -12,7 +11,6 @@ $username = "root";
 $password = "";
 $dbname = "proj1";
 */
-
 // start of the session
 session_start();
 
@@ -33,7 +31,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
 	// Check Password 
-	if(password_verify($login_password, $row['PasswordHash'])){
+	if(strcmp($row['PasswordHash'],md5($login_password))){
 		// Session information to next page
 		$_SESSION['login_account'] = $login_account;
 		$_SESSION['signal'] = $signal;

@@ -1,4 +1,5 @@
 <?php
+// server information
 $servername = "mariadb";
 $username = "cs431s44";
 $password = "gengo9Ni";
@@ -10,7 +11,6 @@ $username = "root";
 $password = "";
 $dbname = "proj1";
 */
-
 // start of the session
 session_start();
 

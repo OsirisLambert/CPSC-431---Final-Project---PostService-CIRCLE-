@@ -1,4 +1,5 @@
 <?php
+// server information
 $servername = "mariadb";
 $username = "cs431s44";
 $password = "gengo9Ni";
@@ -10,7 +11,6 @@ $username = "root";
 $password = "";
 $dbname = "proj1";
 */
-
 //start of the session
 session_start();
 
@@ -21,13 +21,15 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 
+
 // POST variable from html form
 $signal = "sign_up";
 $sign_up_account = isset($_POST['sign_up_account']) ? $_POST['sign_up_account'] : '';
 $username = isset($_POST['username']) ? $_POST['username'] : '';
 $sign_up_password = isset($_POST['sign_up_password']) ? $_POST['sign_up_password'] : '';
 // Password Encryption
-$hash = password_hash($sign_up_password, PASSWORD_DEFAULT);
+$hash = md5($sign_up_password);
+
 // Store to DB
 $sql = "INSERT INTO ACCOUNTS(Email, UserName, PasswordHash) VALUES ('$sign_up_account', '$username', '$hash');";
 if ($conn->query($sql) === TRUE) {

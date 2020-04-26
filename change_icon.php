@@ -1,5 +1,4 @@
 <?php
-
 // server information
 $servername = "mariadb";
 $username = "cs431s44";
@@ -12,7 +11,6 @@ $username = "root";
 $password = "";
 $dbname = "proj1";
 */
-
 // set up connection to database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
